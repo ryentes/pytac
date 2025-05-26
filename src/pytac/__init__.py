@@ -1,2 +1,2 @@
-from src.pytac.TacticusClient import TacticusClient
-from src.pytac import models
+from pytac.TacticusClient import TacticusClient
+from pytac import models
