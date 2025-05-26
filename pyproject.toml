@@ -16,8 +16,7 @@ license-files = ["LICEN[CS]E*"]
 dependencies = [
     "requests>=2.31.0",
     "pydantic",
-    "typing",
-    "json"
+    "typing"
 ]
 
 [project.urls]
