@@ -57,3 +57,35 @@ class TacticusClient(object):
         )
 
         return(player_data)
+    
+    def get_guild_data(self):
+
+        headers={
+            "X-API-Key": self.api_key,
+            "content-type": "application/json"
+        }
+
+        url=f"{self.base_url}/api/v1/guild"
+
+        guild_data=self.get(
+            url=url,
+            headers=headers
+        )
+
+        return(guild_data)
+    
+    def get_guild_raid_data(self):
+
+        headers={
+            "X-API-Key": self.api_key,
+            "content-type": "application/json"
+        }
+
+        url=f"{self.base_url}/api/v1/guildRaid"
+
+        guild_raid_data=self.get(
+            url=url,
+            headers=headers
+        )
+
+        return(guild_raid_data)
