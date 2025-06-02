@@ -1,5 +1,6 @@
 import requests
 import time
+from pytac.models.Unit import Unit
 
 class TacticusClient(object):
     __last_req_timestamp=time.time()
@@ -40,7 +41,7 @@ class TacticusClient(object):
 
         if response.status_code==200:
             return(response)
-        else: return("error")
+        else: return(response.raise_for_status())
 
     def get_player_data(self):
 
@@ -51,10 +52,14 @@ class TacticusClient(object):
 
         url=f"{self.base_url}/api/v1/player"
 
-        player_data=self.get(
+        r=self.get(
             url=url,
             headers=headers
         )
+
+        player_data = [
+            Unit.model_validate(pd) for pd in r.get("player").get("units")
+        ]
 
         return(player_data)
     
