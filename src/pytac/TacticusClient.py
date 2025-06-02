@@ -58,7 +58,7 @@ class TacticusClient(object):
         )
 
         player_data = [
-            Unit.model_validate(pd) for pd in r.get("player").get("units")
+            Unit.model_validate(pd) for pd in r.json().get("player").get("units")
         ]
 
         return(player_data)
