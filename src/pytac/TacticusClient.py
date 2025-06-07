@@ -41,7 +41,7 @@ class TacticusClient(object):
 
         if response.status_code==200:
             return(response)
-        else: return(response.raise_for_status())
+        else: return(response)
 
     def get_player_data(self):
 
